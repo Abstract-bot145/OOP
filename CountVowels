@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+int countVowels(const char* p) {
+    int count = 0;
+    
+    // 使用指向常量的指针遍历字符串
+    while (*p != '\0') {
+        // 将字符转换为小写进行比较
+        char ch = tolower(*p);
+        
+        // 检查是否为元音字母
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            count++;
+        }
+        
+        p++;  // 移动指针到下一个字符
+    }
+    
+    return count;
+}
+
+int main() {
+    const int MAX_SIZE = 1000;
+    char str[MAX_SIZE];
+    
+    // 输入一行字符串
+    cout << "请输入一行字符串: ";
+    cin.getline(str, MAX_SIZE);
+    
+    // 调用函数统计元音字母个数
+    int vowelCount = countVowels(str);
+    
+    // 输出结果
+    cout << "Number of vowels: " << vowelCount << endl;
+    
+    return 0;
+}
