@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+// 使用引用交换两个整数的值
+void swap(int& x, int& y) {
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+// 重载swap函数，使用指针交换两个整数的值
+void swap(int* x, int* y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a, b;
+    
+    // 输入两个整数
+    cin >> a >> b;
+    
+    // 输出交换前的值
+    cout << "Before swap: x=" << a << ", y=" << b << endl;
+    
+    // 调用引用版本的swap函数
+    swap(a, b);
+    
+    // 输出交换后的值
+    cout << "After swap: x=" << a << ", y=" << b << endl;
+    
+    // 再次交换回来，演示指针版本
+    int c = a, d = b;
+    
+    // 调用指针版本的swap函数
+    swap(&c, &d);
+    
+    // 验证指针版本的效果
+    cout << "After pointer swap: x=" << c << ", y=" << d << endl;
+    
+    return 0;
+}
